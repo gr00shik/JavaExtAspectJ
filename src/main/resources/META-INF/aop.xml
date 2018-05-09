@@ -1,0 +1,9 @@
+<aspectj>
+    <aspects>
+        <aspect name="com.gr00shik.asp.MyAspect"/>
+    </aspects>
+    <weaver>
+        <include within="com.gr00shik.util.*"/>
+        <include within="com.gr00shik.asp.*"/>
+    </weaver>
+</aspectj>
