@@ -3,6 +3,7 @@ package com.gr00shik.asp;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
@@ -23,10 +24,18 @@ public class MyAspect {
         return (String)obj;
     }
 
+    @Before("retString()")
+    public void thirdReturn(){
+        System.out.println("Before method");
+    }
+
     @Pointcut("execution(* *..*.myPrint*(..))")
     public void print(){}
 
     @Pointcut("execution(* @com.gr00shik.util.InvAspect *..*.myAnnot*(..))")
     public void annotCl(){}
+
+    @Pointcut("execution(String *())")
+    public void retString(){}
 
 }
